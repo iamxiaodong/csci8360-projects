@@ -68,5 +68,5 @@ spark-submit main.py
 ## Acknowledgments
 
 * Thanks all team members for the laborious work and great collaboration.
-* Thanks [Dr. Quinn](http://cobweb.cs.uga.edu/~squinn/), Shang, Shawn, and Usman for the discussions of using super-fancy-and-what-the-hell Amazon AWS, even though we run our final model in local machine for 4 hours.
+* Thanks [Dr. Quinn](http://cobweb.cs.uga.edu/~squinn/), Shang, Shawn, and Usman for the discussions of using super-fancy-and-what-the-hell Amazon AWS, even though we end up with running our model in local machine for 4 hours.
 
