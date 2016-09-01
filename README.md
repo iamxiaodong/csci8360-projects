@@ -12,11 +12,11 @@ There are multiple class labels per document, but for the sakeof simplicity weâ
 Here are the available data sets:
 
 ```
-X_train_vsmall.txt, y_train_vsmall.txt 
-X_test_vsmall.txt, y_test_vsmall.txt 
-X_train_small.txt, y_train_small.txt 
-X_test_small.txt, y_test_small.txt 
-X_train_large.txt, y_train_large.txt 
+X_train_vsmall.txt, y_train_vsmall.txt
+X_test_vsmall.txt, y_test_vsmall.txt
+X_train_small.txt, y_train_small.txt
+X_test_small.txt, y_test_small.txt
+X_train_large.txt, y_train_large.txt
 X_test_large.txt
 ```
 ### Installing 
