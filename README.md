@@ -11,8 +11,8 @@ Here are the instructions to run the python scripts with Spark locally on Mac OS
 There are multiple class labels per document, but for the sakeof simplicity we’ll ignore all but the labels ending in CAT: CCAT, GCAT, MCAT and ECAT. There are some documents with more than one CAT label. Treat those documents as ifyou observed the same document once for each CAT label (that is, add to the countersfor all the observed CAT labels).
 Here are the available data sets:
 
-``` X_train_vsmall.txt, y_train_vsmall.txt
- X_test_vsmall.txt, y_test_vsmall.txt X_train_small.txt, y_train_small.txt X_test_small.txt, y_test_small.txt X_train_large.txt, y_train_large.txt X_test_large.txt
+```X_train_vsmall.txt, y_train_vsmall.txt
+X_test_vsmall.txt, y_test_vsmall.txtX_train_small.txt, y_train_small.txtX_test_small.txt, y_test_small.txtX_train_large.txt, y_train_large.txtX_test_large.txt
 ```
 ### Installing 
 
