@@ -14,14 +14,13 @@ from collections import Counter
 class preprocessor(object):
 	
 	'''
-	preprocessor for byte files in Microsoft Malware detection data
+	preprocess byte data for microsoft malware detection project
 
 	parameters:
-	- grams: a list of ints, representing the number of grams to use 
-	  default vale: [1, 2]
-	  if set to True, it will produce bigrams from the byte files
-	  if set to False, it will only use unigrams
-	- 
+	- gramList: a list of integers, representing the number of grams to use 
+	  default value: [1, 2], use unigram and bigram
+	- freqThreshold: a threshold to filter term (grams) frequency
+	  default value: 200
 
 	methods:
 	- byteFeatureGenerator(X, y)
@@ -29,7 +28,6 @@ class preprocessor(object):
 	  parameters:
 	    - X: pyspark rdd, with (id, rawDoc) format 
 	    - y: pyspark rdd, with (id, label) format  
-	-
 	''' 
 	def __init__(self, grams = [1, 2], freqThreshold = 200): 		
 		self.grams = grams
@@ -88,8 +86,8 @@ if __name__ == '__main__':
 	labelRdd = sc.parallelize(trainData) # format: (str(id), str(label))
 
 	# feature rdd
-	p1 = preprocessor()
-	byteFeatureRdd = p1.byteFeatureGenerator(byteFiles, labelRdd)
+	prc = preprocessor()
+	byteFeatureRdd = prc.byteFeatureGenerator(byteFiles, labelRdd)
 
 	# save rddd
 	print byteFeatureRdd.take(1)
