@@ -1,0 +1,2 @@
+sed 's/$/.bytes/' X_train_small.txt > tmpfile.txt # add .bytes to tail of each line, and save the tmp file
+sed -e 's#^#https://s3.amazonaws.com/eds-uga-csci8360/data/project2/binaries/#' tmpfile.txt > trainLabelPath.txt # add 'http' address to head of each line

@@ -1,0 +1,31 @@
+1. Login to Amazon AWS account, go to EMR and create a cluster, be sure to choose advanced options, mark
+   hadoop, Gangia, Zeppelin and Spark, choose vpc and subnet, be sure to unmark debugging and logging! 
+   choose the key-pairs, and launch the cluster.P.S. there might be some security/firewall problems if the
+   cluster keeps pending or cancelled.
+
+2. Stay in EMR, and wait for master public DNS, which will be used to SSH the master machine.
+   Make sure to give your *.pem 600 authority, in terminal: chmod 600 tooYoungTooSimple.pem
+
+3. Login to master, in terminal: ssh -i tooYoungTooSimple.pem hadoop@'master-public-DNS', see the EMR logo.
+
+4. Exit to local machine, first transfer you code/data to master, in terminal:
+   scp -i tooYoungTooSimple.pem 'code-path-name' hadoop@'master-pubic-DNS':~/ 
+   This copy your scripts to the home dir, or you can change to other directories as you like.
+   If you want to download the data from master to local machine, just change two path above, as below,
+   scp -i tooYoungTooSimple.pem hadoop@'master-pubic-DNS':~/path-of-your-file-master 'your-local-path'
+   Or, you can just download the data from S3 to your master machine, in terminal:
+   cd 'your preferred path to store data'
+   wget 's3-address-for-your-data'
+
+5. The data for spark scripts should be upload from master to hadoop, which is fast, in master terminal:
+   hadoop fs -put the-data-you-want-to-upload /user/hadoop
+   Look at the files in hadoop, in master terminal:
+   hadoop fs -ls
+
+6. You should install all non-standard python packages in both master and slave machines, learn parallelSSH
+   tool to write a shell script for bath install pacakges/modules/dictionaries in the future.
+
+7. One can submit the spark job simply using 'spark-submit', the job will be assigned for slaves if you don't
+   specify 'SparkContext('local')', which means, slaves will work by default.
+
+8. In master/slave machines, Spark is located in /etc/spark, one can change the logging options in log4j file.
